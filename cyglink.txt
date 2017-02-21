@@ -1,0 +1,1 @@
+"d:\My Documents\论文\倾角传感器\程序\detection\detect.obj"  TO "d:\My Documents\论文\倾角传感器\程序\detection\ide" RS(256) PL(68) PW(78) 

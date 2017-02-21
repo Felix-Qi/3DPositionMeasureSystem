@@ -1,0 +1,36 @@
+//串口0接收中断函数 
+void UART0_isr () interrupt 4  	   //中断号
+{									   //中断自动跳转和返回寄存器页
+    if(RI0)							  //检测到输入
+    {
+        unsigned char ch;
+
+        RI0 = 0;					  //清标志位
+        ch = SBUF0;					  //读缓存
+        
+        inbuf0[count0] = ch;
+		count0++;
+        if(count0==(INBUF_LEN-1))
+        {						
+         read_flag0 = 1;  //如果串口接收的数据达到INBUF_LEN个 
+                               //就置位取数标志 
+         }
+    }
+}
+
+//测量磁偏角
+void Measure_MEMS()
+{
+    char old_SFRPAGE = SFRPAGE;      // Store current SFRPAGE
+
+    send_char_com0(0xa2);            //设置为单次输出方式
+	IE = 0x90;		                 //开中断;all pages 
+    while(read_flag0 == 0);			 //等待20个字节数据接收完成
+	  read_flag0 = 0;				 //清取数标志
+	  count0 = 0;					 //清计数值
+	IE = 0x00;	                     //关中断
+	outbuf1[4] = inbuf0[16];		 //转存
+	outbuf1[5] = inbuf0[17];
+
+	SFRPAGE = old_SFRPAGE;           // restore SFRPAGE
+}

@@ -1,0 +1,47 @@
+//晶振初始化
+void Oscillator_Init()			//采用外部22.1184M晶振
+{
+	char old_SFRPAGE = SFRPAGE;      // Store current SFRPAGE
+
+    int i = 0;
+    SFRPAGE   = CONFIG_PAGE;
+    OSCXCN    = 0x67;                  //晶振范围10~30M
+    for (i = 0; i < 3000; i++);  // Wait 1ms for initialization
+    while ((OSCXCN & 0x80) == 0);//晶振已工作且稳定
+    CLKSEL    = 0x01;            //系统时钟来自晶振
+    OSCICN    &= ~0x80;           //禁止内部晶振
+
+	SFRPAGE = old_SFRPAGE;           // restore SFRPAGE
+}
+
+//计数器初始化
+void Timer_Init()
+{
+    char old_SFRPAGE = SFRPAGE;      // Store current SFRPAGE
+
+    SFRPAGE   = TIMER01_PAGE;
+    TCON      = 0x40;
+    TMOD      = 0x20;
+    CKCON     = 0x10;
+    TH1       = 0xA0;
+    SFRPAGE   = TMR2_PAGE;
+    TMR2CN    = 0x04;
+    TMR2CF    = 0x08;
+    RCAP2L    = 0x70;
+    RCAP2H    = 0xFF;
+
+	SFRPAGE = old_SFRPAGE;           // restore SFRPAGE
+}
+
+//SPI初始化
+void SPI_Init()
+{
+	char old_SFRPAGE = SFRPAGE;      // Store current SFRPAGE
+
+    SFRPAGE   = SPI0_PAGE;
+    SPI0CFG   = 0x40;
+    SPI0CN    = 0x0D;
+    SPI0CKR   = 0x36;
+
+	SFRPAGE = old_SFRPAGE;           // restore SFRPAGE
+}

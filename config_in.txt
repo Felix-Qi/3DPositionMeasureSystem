@@ -1,0 +1,42 @@
+//晶振初始化
+void Oscillator_Init()			//采用外部22.1184M晶振
+{
+    char old_SFRPAGE = SFRPAGE;      // Store current SFRPAGE
+
+    SFRPAGE   = CONFIG_PAGE;
+    OSCICN    = 0x83;
+
+    SFRPAGE = old_SFRPAGE;           // restore SFRPAGE
+}
+
+//计数器初始化
+void Timer_Init()
+{
+    char old_SFRPAGE = SFRPAGE;      // Store current SFRPAGE
+
+    SFRPAGE   = TIMER01_PAGE;
+    TCON      = 0x40;
+    TMOD      = 0x20;
+    CKCON     = 0x10;
+    TH1       = 0x96;
+    SFRPAGE   = TMR2_PAGE;
+    TMR2CN    = 0x04;
+    TMR2CF    = 0x08;
+    RCAP2L    = 0x60;
+    RCAP2H    = 0xFF;
+
+    SFRPAGE = old_SFRPAGE;           // restore SFRPAGE
+}
+
+//SPI初始化
+void SPI_Init()
+{
+    char old_SFRPAGE = SFRPAGE;      // Store current SFRPAGE
+
+    SFRPAGE   = SPI0_PAGE;
+    SPI0CFG   = 0x40;
+    SPI0CN    = 0x0D;
+    SPI0CKR   = 0x3C;
+
+    SFRPAGE = old_SFRPAGE;           // restore SFRPAGE
+}

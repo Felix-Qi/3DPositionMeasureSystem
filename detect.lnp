@@ -1,0 +1,4 @@
+"detect.obj",
+".\STARTUP.obj" 
+TO "detect" 
+RAMSIZE(256) 

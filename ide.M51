@@ -1,0 +1,535 @@
+BL51 BANKED LINKER/LOCATER V6.00              11/12/2010  16:57:36  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE d:\My Documents\论文\倾角传感器\程序\detection\detect
+>> .obj TO d:\My Documents\论文\倾角传感器\程序\detection\ide RS (256) PL (68)
+>>  PW (78)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  d:\My Documents\论文\倾角传感器\程序\detection\detect.obj (DETECT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+
+
+LINK MAP OF MODULE:  d:\My Documents\论文\倾角传感器\程序\detection\ide (DETEC
+>> T)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0025H     UNIT         ?DT?DETECT
+            DATA    002DH     0006H     UNIT         _DATA_GROUP_
+            IDATA   0033H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     001BH     UNIT         ?PR?_DELAY_US?DETECT
+                    001EH     0005H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     00C1H     UNIT         ?PR?MEASURE_ANGLE?DETECT
+            CODE    00E7H     003BH     UNIT         ?PR?MAIN?DETECT
+            CODE    0122H     0033H     UNIT         ?PR?_SEND_STRING_COM1?DET
+>> ECT
+            CODE    0155H     002DH     UNIT         ?C?LIB_CODE
+            CODE    0182H     002CH     UNIT         ?PR?SPI_READ?DETECT
+            CODE    01AEH     002CH     UNIT         ?PR?MEASURE_MEMS?DETECT
+            CODE    01DAH     0026H     UNIT         ?PR?UART0_ISR?DETECT
+            CODE    0200H     0022H     UNIT         ?PR?TIMER_INIT?DETECT
+            CODE    0222H     001BH     UNIT         ?PR?_DELAY_MS?DETECT
+            CODE    023DH     0014H     UNIT         ?PR?UART_INIT?DETECT
+            CODE    0251H     0014H     UNIT         ?PR?PORT_IO_INIT?DETECT
+            CODE    0265H     0012H     UNIT         ?PR?INIT_DEVICE?DETECT
+            CODE    0277H     0011H     UNIT         ?PR?RESET_SOURCES_INIT?DE
+>> TECT
+            CODE    0288H     0011H     UNIT         ?PR?SPI_INIT?DETECT
+            CODE    0299H     000FH     UNIT         ?PR?_SEND_CHAR_COM0?DETEC
+>> T
+            CODE    02A8H     000FH     UNIT         ?PR?_SEND_CHAR_COM1?DETEC
+>> T
+            CODE    02B7H     000FH     UNIT         ?PR?_SPI_WRITEDATA?DETECT
+>> 
+            CODE    02C6H     000CH     UNIT         ?C_C51STARTUP
+            CODE    02D2H     000BH     UNIT         ?PR?OSCILLATOR_INIT?DETEC
+>> T
+
+
+
+OVERLAY MAP OF MODULE:   d:\My Documents\论文\倾角传感器\程序\detection\ide (D
+>> ETECT)
+
+
+SEGMENT                                 DATA_GROUP 
+BL51 BANKED LINKER/LOCATER V6.00            11/12/2010  16:57:36  PAGE 2
+
+
+  +--> CALLED SEGMENT                 START    LENGTH
+-----------------------------------------------------
+?C_C51STARTUP                         -----    -----
+  +--> ?PR?MAIN?DETECT
+
+?PR?MAIN?DETECT                       -----    -----
+  +--> ?PR?INIT_DEVICE?DETECT
+  +--> ?PR?_DELAY_MS?DETECT
+  +--> ?PR?MEASURE_MEMS?DETECT
+  +--> ?PR?MEASURE_ANGLE?DETECT
+  +--> ?PR?_SEND_STRING_COM1?DETECT
+  +--> ?PR?_SEND_CHAR_COM1?DETECT
+
+?PR?INIT_DEVICE?DETECT                -----    -----
+  +--> ?PR?RESET_SOURCES_INIT?DETECT
+  +--> ?PR?TIMER_INIT?DETECT
+  +--> ?PR?UART_INIT?DETECT
+  +--> ?PR?SPI_INIT?DETECT
+  +--> ?PR?PORT_IO_INIT?DETECT
+  +--> ?PR?OSCILLATOR_INIT?DETECT
+
+?PR?_DELAY_MS?DETECT                  -----    -----
+  +--> ?PR?_DELAY_US?DETECT
+
+?PR?MEASURE_MEMS?DETECT               -----    -----
+  +--> ?PR?_SEND_CHAR_COM0?DETECT
+  +--> ?PR?_DELAY_MS?DETECT
+
+?PR?MEASURE_ANGLE?DETECT              -----    -----
+  +--> ?PR?SPI_READ?DETECT
+  +--> ?PR?_DELAY_MS?DETECT
+  +--> ?PR?_SPI_WRITEDATA?DETECT
+
+?PR?SPI_READ?DETECT                   -----    -----
+  +--> ?PR?_SPI_WRITEDATA?DETECT
+
+?PR?_SEND_STRING_COM1?DETECT          002DH    0006H
+  +--> ?PR?_SEND_CHAR_COM1?DETECT
+
+
+
+SYMBOL TABLE OF MODULE:  d:\My Documents\论文\倾角传感器\程序\detection\ide (D
+>> ETECT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DETECT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:009DH         PUBLIC        SPI0CKR
+  D:00FFH         PUBLIC        WDTCN
+  D:00C8H         PUBLIC        P4
+  D:0008H         PUBLIC        OUTBUF_P
+  D:00E8H         PUBLIC        ADC0CN
+  D:0084H         PUBLIC        SFRPAGE
+  D:00A4H         PUBLIC        P0MDOUT
+  D:00E8H         PUBLIC        ADC2CN
+  D:00A8H         PUBLIC        IE
+  D:009CH         PUBLIC        P4MDOUT
+  C:0222H         PUBLIC        _Delay_ms
+  C:0251H         PUBLIC        Port_IO_Init
+  D:00D8H         PUBLIC        PCA0CN
+  D:00B8H         PUBLIC        IP
+  C:02D2H         PUBLIC        Oscillator_Init
+  C:0003H         PUBLIC        _Delay_us
+BL51 BANKED LINKER/LOCATER V6.00            11/12/2010  16:57:36  PAGE 3
+
+
+  D:00E1H         PUBLIC        XBR0
+  C:01DAH         PUBLIC        UART0_isr
+  D:00E3H         PUBLIC        XBR2
+  D:00CBH         PUBLIC        RCAP2H
+  D:00C0H         PUBLIC        SMB0CN
+  D:00CAH         PUBLIC        RCAP2L
+  C:00E7H         PUBLIC        main
+  D:0088H         PUBLIC        CPT0CN
+  D:0088H         PUBLIC        CPT1CN
+  D:00F8H         PUBLIC        SPI0CN
+  D:00C9H         PUBLIC        TMR2CF
+  B:00F8H.7       PUBLIC        SPIF
+  C:023DH         PUBLIC        UART_Init
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:02B7H         PUBLIC        _SPI_WriteData
+  D:00C8H         PUBLIC        TMR2CN
+  D:00C8H         PUBLIC        TMR3CN
+  D:00C8H         PUBLIC        TMR4CN
+  C:0026H         PUBLIC        Measure_angle
+  D:008AH         PUBLIC        OSCICN
+  D:0009H         PUBLIC        outtemp1
+  C:0277H         PUBLIC        Reset_Sources_Init
+  B:00C8H.0       PUBLIC        CS0
+  D:000DH         PUBLIC        inbuf0
+  B:00C8H.1       PUBLIC        CS1
+  C:0265H         PUBLIC        Init_Device
+  D:0021H         PUBLIC        outbuf1
+  D:002BH         PUBLIC        read_flag0
+  C:0187H         PUBLIC        SPI_Read
+  B:0098H.0       PUBLIC        RI0
+  B:0098H.1       PUBLIC        TI0
+  D:008DH         PUBLIC        TH1
+  B:0098H.1       PUBLIC        TI1
+  D:0088H         PUBLIC        FLSTAT
+  C:0122H         PUBLIC        _send_string_com1
+  D:002CH         PUBLIC        count0
+  C:0299H         PUBLIC        _send_char_com0
+  C:02A8H         PUBLIC        _send_char_com1
+  D:0099H         PUBLIC        SBUF0
+  D:0099H         PUBLIC        SBUF1
+  C:0288H         PUBLIC        SPI_Init
+  D:00EFH         PUBLIC        RSTSRC
+  D:0098H         PUBLIC        SCON0
+  D:0098H         PUBLIC        SCON1
+  C:01AEH         PUBLIC        Measure_MEMS
+  D:0091H         PUBLIC        SSTA0
+  D:009AH         PUBLIC        SPI0CFG
+  D:008EH         PUBLIC        CKCON
+  D:009BH         PUBLIC        SPI0DAT
+  C:0200H         PUBLIC        Timer_Init
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          UART0_ISR
+  C:01DAH         LINE#         59
+  C:01E3H         LINE#         61
+  C:01E6H         LINE#         62
+  C:01E6H         LINE#         63
+  C:01E8H         LINE#         64
+  C:01EFH         LINE#         65
+  C:01F1H         LINE#         67
+  C:01F6H         LINE#         68
+  C:01F6H         LINE#         69
+  C:01F9H         LINE#         70
+  C:01F9H         LINE#         71
+  C:01F9H         LINE#         72
+BL51 BANKED LINKER/LOCATER V6.00            11/12/2010  16:57:36  PAGE 4
+
+
+  -------         ENDPROC       UART0_ISR
+  -------         PROC          _SEND_CHAR_COM0
+  D:0007H         SYMBOL        ch0
+  -------         DO            
+  D:0006H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:0299H         LINE#         74
+  C:0299H         LINE#         75
+  C:0299H         LINE#         76
+  C:029BH         LINE#         78
+  C:029EH         LINE#         79
+  C:02A0H         LINE#         80
+  C:02A3H         LINE#         81
+  C:02A5H         LINE#         83
+  C:02A7H         LINE#         84
+  -------         ENDPROC       _SEND_CHAR_COM0
+  -------         PROC          _SEND_CHAR_COM1
+  D:0007H         SYMBOL        ch1
+  -------         DO            
+  D:0006H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:02A8H         LINE#         89
+  C:02A8H         LINE#         90
+  C:02A8H         LINE#         91
+  C:02AAH         LINE#         93
+  C:02ADH         LINE#         94
+  C:02AFH         LINE#         95
+  C:02B2H         LINE#         96
+  C:02B4H         LINE#         98
+  C:02B6H         LINE#         99
+  -------         ENDPROC       _SEND_CHAR_COM1
+  -------         PROC          _SEND_STRING_COM1
+  D:002DH         SYMBOL        str1
+  D:0030H         SYMBOL        strlen1
+  -------         DO            
+  D:0032H         SYMBOL        old_SFRPAGE
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0122H         LINE#         102
+  C:012CH         LINE#         103
+  C:012CH         LINE#         104
+  C:012FH         LINE#         106
+  C:0132H         LINE#         109
+  C:0132H         LINE#         110
+  C:0143H         LINE#         111
+  C:0148H         LINE#         112
+  C:0151H         LINE#         114
+  C:0154H         LINE#         115
+  -------         ENDPROC       _SEND_STRING_COM1
+  -------         PROC          _SPI_WRITEDATA
+  D:0007H         SYMBOL        val
+  -------         DO            
+  D:0006H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:02B7H         LINE#         121
+  C:02B7H         LINE#         122
+  C:02B7H         LINE#         123
+  C:02B9H         LINE#         125
+  C:02BCH         LINE#         126
+  C:02BEH         LINE#         127
+  C:02C1H         LINE#         128
+  C:02C3H         LINE#         130
+  C:02C5H         LINE#         131
+  -------         ENDPROC       _SPI_WRITEDATA
+  -------         PROC          L?0053
+BL51 BANKED LINKER/LOCATER V6.00            11/12/2010  16:57:36  PAGE 5
+
+
+  -------         ENDPROC       L?0053
+  -------         PROC          SPI_READ
+  -------         DO            
+  D:0007H         SYMBOL        old_SFRPAGE
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0187H         LINE#         133
+  C:0187H         LINE#         134
+  C:0187H         LINE#         135
+  C:0189H         LINE#         139
+  C:018CH         LINE#         140
+  C:018EH         LINE#         141
+  C:018EH         LINE#         142
+  C:0191H         LINE#         143
+  C:0194H         LINE#         144
+  C:0196H         LINE#         145
+  C:01A0H         LINE#         146
+  C:01ABH         LINE#         148
+  C:01ADH         LINE#         149
+  -------         ENDPROC       SPI_READ
+  -------         PROC          RESET_SOURCES_INIT
+  -------         DO            
+  D:0007H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:0277H         LINE#         153
+  C:0277H         LINE#         154
+  C:0277H         LINE#         155
+  C:0279H         LINE#         157
+  C:027CH         LINE#         158
+  C:027FH         LINE#         159
+  C:0282H         LINE#         160
+  C:0285H         LINE#         162
+  C:0287H         LINE#         163
+  -------         ENDPROC       RESET_SOURCES_INIT
+  -------         PROC          TIMER_INIT
+  -------         DO            
+  D:0007H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:0200H         LINE#         167
+  C:0200H         LINE#         168
+  C:0200H         LINE#         169
+  C:0202H         LINE#         171
+  C:0205H         LINE#         172
+  C:0208H         LINE#         173
+  C:020BH         LINE#         174
+  C:020EH         LINE#         175
+  C:0211H         LINE#         176
+  C:0213H         LINE#         177
+  C:0216H         LINE#         178
+  C:0219H         LINE#         179
+  C:021CH         LINE#         180
+  C:021FH         LINE#         182
+  C:0221H         LINE#         183
+  -------         ENDPROC       TIMER_INIT
+  -------         PROC          UART_INIT
+  -------         DO            
+  D:0007H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:023DH         LINE#         186
+  C:023DH         LINE#         187
+  C:023DH         LINE#         188
+  C:023FH         LINE#         190
+  C:0242H         LINE#         191
+  C:0245H         LINE#         192
+  C:0248H         LINE#         193
+BL51 BANKED LINKER/LOCATER V6.00            11/12/2010  16:57:36  PAGE 6
+
+
+  C:024BH         LINE#         194
+  C:024EH         LINE#         196
+  C:0250H         LINE#         197
+  -------         ENDPROC       UART_INIT
+  -------         PROC          SPI_INIT
+  -------         DO            
+  D:0007H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:0288H         LINE#         201
+  C:0288H         LINE#         202
+  C:0288H         LINE#         203
+  C:028AH         LINE#         205
+  C:028DH         LINE#         206
+  C:0290H         LINE#         207
+  C:0293H         LINE#         208
+  C:0296H         LINE#         210
+  C:0298H         LINE#         211
+  -------         ENDPROC       SPI_INIT
+  -------         PROC          PORT_IO_INIT
+  -------         DO            
+  D:0007H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:0251H         LINE#         214
+  C:0251H         LINE#         215
+  C:0251H         LINE#         225
+  C:0253H         LINE#         227
+  C:0256H         LINE#         228
+  C:0259H         LINE#         229
+  C:025CH         LINE#         230
+  C:025FH         LINE#         231
+  C:0262H         LINE#         233
+  C:0264H         LINE#         234
+  -------         ENDPROC       PORT_IO_INIT
+  -------         PROC          OSCILLATOR_INIT
+  -------         DO            
+  D:0007H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:02D2H         LINE#         237
+  C:02D2H         LINE#         238
+  C:02D2H         LINE#         239
+  C:02D4H         LINE#         241
+  C:02D7H         LINE#         242
+  C:02DAH         LINE#         244
+  C:02DCH         LINE#         245
+  -------         ENDPROC       OSCILLATOR_INIT
+  -------         PROC          INIT_DEVICE
+  C:0265H         LINE#         249
+  C:0265H         LINE#         250
+  C:0265H         LINE#         251
+  C:0268H         LINE#         252
+  C:026BH         LINE#         253
+  C:026EH         LINE#         254
+  C:0271H         LINE#         255
+  C:0274H         LINE#         256
+  -------         ENDPROC       INIT_DEVICE
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        times
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         272
+  C:0003H         LINE#         273
+  C:0003H         LINE#         276
+  C:000DH         LINE#         277
+  C:000DH         LINE#         278
+BL51 BANKED LINKER/LOCATER V6.00            11/12/2010  16:57:36  PAGE 7
+
+
+  C:000EH         LINE#         279
+  C:000FH         LINE#         280
+  C:0010H         LINE#         281
+  C:0011H         LINE#         282
+  C:0012H         LINE#         283
+  C:0013H         LINE#         284
+  C:0014H         LINE#         286
+  C:0015H         LINE#         287
+  C:0016H         LINE#         288
+  C:001DH         LINE#         289
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _DELAY_MS
+  D:0002H         SYMBOL        times
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0222H         LINE#         302
+  C:0226H         LINE#         303
+  C:0226H         LINE#         306
+  C:0232H         LINE#         307
+  C:023CH         LINE#         308
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MEASURE_ANGLE
+  -------         DO            
+  D:0001H         SYMBOL        old_SFRPAGE
+  D:0004H         SYMBOL        t0
+  D:0002H         SYMBOL        t1
+  -------         ENDDO         
+  C:0026H         LINE#         313
+  C:0026H         LINE#         314
+  C:0026H         LINE#         315
+  C:0028H         LINE#         318
+  C:002BH         LINE#         319
+  C:002DH         LINE#         320
+  C:002DH         LINE#         321
+  C:0030H         LINE#         322
+  C:0032H         LINE#         323
+  C:0039H         LINE#         325
+  C:003BH         LINE#         326
+  C:0040H         LINE#         327
+  C:0043H         LINE#         328
+  C:0045H         LINE#         329
+  C:0053H         LINE#         330
+  C:0061H         LINE#         331
+  C:0070H         LINE#         332
+  C:0072H         LINE#         333
+  C:0074H         LINE#         334
+  C:0083H         LINE#         335
+  C:0085H         LINE#         336
+  C:0087H         LINE#         338
+  C:008AH         LINE#         340
+  C:008CH         LINE#         341
+  C:008CH         LINE#         342
+  C:008FH         LINE#         343
+  C:0091H         LINE#         344
+  C:0098H         LINE#         346
+  C:009AH         LINE#         347
+  C:009FH         LINE#         348
+  C:00A2H         LINE#         349
+  C:00A4H         LINE#         350
+  C:00B0H         LINE#         351
+  C:00BCH         LINE#         352
+  C:00CBH         LINE#         353
+  C:00CDH         LINE#         354
+  C:00CFH         LINE#         355
+BL51 BANKED LINKER/LOCATER V6.00            11/12/2010  16:57:36  PAGE 8
+
+
+  C:00DDH         LINE#         356
+  C:00DFH         LINE#         357
+  C:00E1H         LINE#         359
+  C:00E4H         LINE#         361
+  C:00E6H         LINE#         362
+  -------         ENDPROC       MEASURE_ANGLE
+  -------         PROC          MEASURE_MEMS
+  -------         DO            
+  D:0001H         SYMBOL        old_SFRPAGE
+  -------         ENDDO         
+  C:01AEH         LINE#         364
+  C:01AEH         LINE#         365
+  C:01AEH         LINE#         366
+  C:01B0H         LINE#         368
+  C:01B3H         LINE#         370
+  C:01B8H         LINE#         371
+  C:01BFH         LINE#         372
+  C:01C4H         LINE#         373
+  C:01C4H         LINE#         374
+  C:01C7H         LINE#         375
+  C:01C9H         LINE#         376
+  C:01CBH         LINE#         378
+  C:01CEH         LINE#         380
+  C:01D1H         LINE#         381
+  C:01D4H         LINE#         382
+  C:01D7H         LINE#         384
+  C:01D9H         LINE#         385
+  -------         ENDPROC       MEASURE_MEMS
+  -------         PROC          MAIN
+  C:00E7H         LINE#         390
+  C:00E7H         LINE#         391
+  C:00E7H         LINE#         392
+  C:00EAH         LINE#         393
+  C:00EDH         LINE#         394
+  C:00EFH         LINE#         396
+  C:00F6H         LINE#         397
+  C:00F6H         LINE#         398
+  C:00F6H         LINE#         399
+  C:00F9H         LINE#         400
+  C:00FFH         LINE#         401
+  C:00FFH         LINE#         402
+  C:0102H         LINE#         403
+  C:010FH         LINE#         404
+  C:0114H         LINE#         405
+  C:0119H         LINE#         406
+  C:0120H         LINE#         407
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        DETECT
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0155H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+Program Size: data=52.0 xdata=0 code=728
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
